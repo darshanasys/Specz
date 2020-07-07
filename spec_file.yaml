@@ -1,0 +1,79 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Countries Data
+  license:
+    name: MIT
+host: restcountries.eu
+basePath: /rest/v2
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /all:
+    get:
+      summary: List all countries
+      operationId: listCountries
+      tags:
+        - countries
+      responses:
+        "200":
+          description: list of all the countries and related data
+          schema:
+            $ref: "#/definitions/Countries"
+definitions:
+  Country:
+    properties:
+      name:
+        type: string
+      population:
+        type: string
+      area:
+        type: string
+      topLevelDomain:
+        type: array
+      alpha2Code:
+        type: string
+      alpha3Code:
+        type: string
+      capital:
+        type: string
+      callingCodes:
+        type: array
+      region:
+        type: string
+      subregion:
+        type: string
+      demonym:
+        type: string
+      altSpellings:
+        type: array
+      gini:
+        type: string
+      nativeName:
+        type: string
+      numericCode:
+        type: string
+      timezones:
+        type: array
+      borders:
+        type: array
+      currencies:
+        type: array
+      languages:
+        type: array
+      translations:
+        type: array
+      regionalBlocs:
+        type: array
+      cioc:
+        type: string
+      flag:
+        type: string
+  Countries:
+    type: array
+    items:
+      $ref: "#/definitions/Country"
